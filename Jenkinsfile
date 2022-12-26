@@ -7,14 +7,11 @@ pipeline {
     }     
     stages {
         stage('Build') {
-            agent { 
-                label 'QAenvironment'
-            }
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Test') {
+        stage('Test') {                  
             agent { 
                 label 'QAenvironment'
             }
