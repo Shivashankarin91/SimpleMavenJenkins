@@ -5,12 +5,12 @@ pipeline {
             args '-v /root/.m2:/root/.m2'
         }
     }
-    stages {
-        node ('QA environment'){
+    stages {        
         stage('Build') {
+            node ('QA environment'){
             steps {
                 sh 'mvn -B -DskipTests clean package'
-            }
+            }}
         }
         stage('Test') {
             steps {
