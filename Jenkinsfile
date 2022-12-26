@@ -6,11 +6,10 @@ pipeline {
         }
     }
     stages {        
-        stage('Build') {
-            node ('QA environment'){
+        stage('Build') {            
             steps {
                 sh 'mvn -B -DskipTests clean package'
-            }}
+            }
         }
         stage('Test') {
             steps {
