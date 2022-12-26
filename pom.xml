@@ -57,10 +57,10 @@
             <configuration>
               <rules>
                 <requireMavenVersion>
-                  <version>[3.6.3,)</version>
+                  <version>[3.5.0,)</version>
                 </requireMavenVersion>
                 <requireJavaVersion>
-                  <version>[10,)</version>
+                  <version>[1.8,)</version>
                 </requireJavaVersion>
               </rules>
             </configuration>
