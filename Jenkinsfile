@@ -6,6 +6,7 @@ pipeline {
         }
     }
     stages {
+        node ('QA environment'){
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
@@ -19,7 +20,7 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
-            }
+            }}
         }        
     }
      post { 
