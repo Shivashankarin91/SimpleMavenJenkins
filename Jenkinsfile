@@ -11,6 +11,11 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        stage('Deploy to Nexus') {
+            steps {
+                nexusArtifactUploader artifacts: [[artifactId: 'my-app', classifier: '', file: 'my-app/target/my-app.jar', type: 'jar']], credentialsId: 'Nexus', groupId: 'com.mycompany.app', nexusUrl: '10.0.0.4:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-SNAPSHOT'
+            }
+        }
         stage('Test') {                             
             steps {
                 sh 'mvn test'
