@@ -1,5 +1,5 @@
 pipeline {
-    agent {        
+     agent { label "QA Environment" }     
         docker {
             image 'maven:3-alpine'
             args '-v /root/.m2:/root/.m2'
